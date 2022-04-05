@@ -4,15 +4,11 @@ using namespace std;
 
  // } Driver Code Ends
 class Solution {
+    #include<bits/stdc++.h>
   public:
     int setBits(int N) {
-        int cnt=0;
-        while(N>0)
-        {
-            N=(N)&(N-1);
-            cnt++;
-        }
-        return cnt;
+       return __builtin_popcount(N);
+        
     }
 };
 
