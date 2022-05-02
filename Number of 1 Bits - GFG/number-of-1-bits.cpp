@@ -9,10 +9,12 @@ class Solution {
         int cnt=0;
         while(N>0)
         {
-            N&=(N-1);
+            if(N&1)
             cnt++;
+           N>>=1;
         }
-      return cnt;
+        
+        return cnt;
     }
 };
 
