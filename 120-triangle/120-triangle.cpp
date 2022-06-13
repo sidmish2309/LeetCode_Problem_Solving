@@ -11,8 +11,10 @@ public:
              //       2   3           // But actually min. ans is--->(-1+3+(-3))--->-1
           //        1  -1   -3  
 // So, here come DP(bottom up approach)...came into existence for checking all possible paths.
-    int n=triangle.size();                      
-    vector<int> ans(triangle.back());  // v---> 4 1 8 3
+   
+        int n=triangle.size();
+        vector<int> ans=triangle[n-1];  // 4 1 8 3 (basically an array of size of last vectors and updating in that stuff only)
+        
         for(int i=n-2; i>=0; i--)
         {
             for(int j=0; j<triangle[i].size(); j++)
