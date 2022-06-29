@@ -1,26 +1,21 @@
 class Solution {
 public:
     int findCenter(vector<vector<int>>& edges) {
-        int n=edges.size();
-        vector<int> A[n+2]; // adjacency list
-        for(auto child:edges)
+        map<int,int>m;
+        for(auto x:edges)
         {
-            int u=child[0];
-            int v=child[1];
-            A[u].push_back(v);
-            A[v].push_back(u);
+            m[x[0]]++;
+            m[x[1]]++;
         }
-        
-        int ans=-1; // -1
-        for(int i=0; i<n+2; i++)
+        int p;
+        for(auto x:m)
         {
-            int p=A[i].size();
-            if(p>1)
+            if(x.second>1)
             {
-                ans=i;
-                break;
+                p=x.first;
             }
+          
         }
-        return ans;
+        return p;
     }
 };
