@@ -15,7 +15,7 @@ class Solution {
                 if(dfs(child,adj,vis,node)) return true;
             }
             
-            // else if(vis[child]==1 && par==child) continue;
+            else if(vis[child]==1 && par==child) continue;
             else if(vis[child] && child!=par) return true;
             
         }
