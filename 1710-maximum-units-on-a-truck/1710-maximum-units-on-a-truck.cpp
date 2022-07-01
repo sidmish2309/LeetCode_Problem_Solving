@@ -9,27 +9,24 @@ public:
     
     
     int maximumUnits(vector<vector<int>>& boxTypes, int truckSize) {
-        sort(boxTypes.begin(),boxTypes.end(),comp);
-        int size=0, ans=0, rem, count=0;
-        for(int i=boxTypes.size()-1; i>=0; i--)
-        {
-            size+=boxTypes[i][0];
-                if(size<=truckSize)
-                {
-                    ans+=(boxTypes[i][0]*boxTypes[i][1]);
-                    count+=boxTypes[i][0];
-                }
-                
-            else
-            {
-                rem=(truckSize-count)*boxTypes[i][1];
-                ans+=rem;
-                break;
-            }
-            
-                
-        }
-        
+       //so, what we will do is--> we will sort the boxTypes on the basis of number of boxes......as its kinda a fractional knapsack prblm.
+        int ans=0, boxes=0;
+        sort(boxTypes.rbegin(),boxTypes.rend(),comp) ; // in reverse order
+           for(auto x:boxTypes)
+           {
+               if(boxes+x[0]<=truckSize)
+               {
+                   boxes+=x[0];
+                   ans+=(x[0]*x[1]);
+               }
+               else
+               {
+                   if(boxes==truckSize) break;
+                   int remain=truckSize-boxes;
+                   ans+=(remain*x[1]);
+                   boxes+=remain;
+               }
+           }
         return ans;
     }
 };
