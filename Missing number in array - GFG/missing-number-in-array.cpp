@@ -13,16 +13,12 @@ using namespace std;
 class Solution{
   public:
     int MissingNumber(vector<int>& array, int n) {
-        unordered_map<int,int>m;
-        for(auto x: array)
-        m[x]=1;
-        int ans;
-        for(int i=1; i<=n; i++)
-        {
-             if(m[i]!=1)
-             ans=i;
-        }
-        return ans;
+           int sum=n*(n+1)/2;
+       
+       for(auto x : array){
+           sum = sum-x;
+       }
+       return sum;
        
     }
 };
