@@ -17,10 +17,10 @@ public:
    
 	int possible_paths(vector<vector<int>>edges, int n, int s, int d){
 	   vector<int>A[n]; // Array of vectors
-	   for(auto x:edges)
+	   for(int i=0; i<edges.size(); i++)
 	   {
-	       int u=x[0];
-	       int v=x[1];
+	       int u=edges[i][0];
+	       int v=edges[i][1];
 	       A[u].push_back(v);
 	   }
 	  
