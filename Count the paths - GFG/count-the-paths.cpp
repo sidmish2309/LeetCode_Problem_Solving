@@ -5,26 +5,27 @@ using namespace std;
  // } Driver Code Ends
 class Solution {
 public:
-int cnt=0;
-void dfs(int node,  vector<int>A[], int d)
-{
-    if(node==d)
-    cnt++;
-    for(auto child: A[node])
-    dfs(child,A,d);
-}
+   int cnt=0;
+   
+   void dfs(int node,  vector<int>A[ ], int d)
+   {
+       if(node==d)
+       cnt++;
+       for(auto child:A[node])
+       dfs(child,A,d);
+   }
+   
 	int possible_paths(vector<vector<int>>edges, int n, int s, int d){
-	   vector<int>A[n];
+	   vector<int>A[n]; // Array of vectors
 	   for(auto x:edges)
 	   {
 	       int u=x[0];
 	       int v=x[1];
 	       A[u].push_back(v);
 	   }
-	   
-	   
-	   dfs(s,A,d);
-	   return cnt;
+	  
+	  dfs(s,A,d);
+	  return cnt;
 	}
 };
 
