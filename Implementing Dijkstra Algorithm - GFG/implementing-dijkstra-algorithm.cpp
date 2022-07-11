@@ -5,12 +5,13 @@ using namespace std;
  // } Driver Code Ends
 class Solution
 {
+    #define pii pair<int,int>
 	public:
 	//Function to find the shortest distance of all the vertices
     //from the source vertex S.
     vector <int> dijkstra(int V, vector<vector<int>> A[], int S)
     {
-        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>pq;
+        priority_queue<pii,vector<pii>,greater<pii>>pq;
         vector<int> dist(V+1,1e9+7);
         dist[S]=0;
         pq.push({0,S});
