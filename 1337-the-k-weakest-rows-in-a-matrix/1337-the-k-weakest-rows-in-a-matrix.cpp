@@ -4,8 +4,10 @@ public:
       set<pair<int,int>> s;
         for(int i=0; i<mat.size(); i++)
         {
-            int cnt=count(mat[i].begin(),mat[i].end(),1);
-            s.insert({cnt,i});
+            int ub=upper_bound(mat[i].rbegin(),mat[i].rend(),1)-mat[i].rbegin();
+            int lb=lower_bound(mat[i].rbegin(),mat[i].rend(),1)-mat[i].rbegin();
+            
+            s.insert({ub-lb,i});
         }
         
         vector<int> ans;
