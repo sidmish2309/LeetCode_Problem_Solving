@@ -7,12 +7,11 @@ public:
         
         for(auto x:nums2)
         {
-            auto it=m.find(x);
-            if(it!=m.end() && it->second>0)
-            {
-                ans.push_back(x);
-                it->second--;
-            }
+           if(m[x]>0)
+           {
+               m[x]--;
+               ans.push_back(x);
+           }
         }
         return ans;
     }
