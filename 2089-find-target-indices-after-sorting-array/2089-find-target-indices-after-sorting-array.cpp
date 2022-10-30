@@ -1,11 +1,11 @@
 class Solution {
 public:
     vector<int> targetIndices(vector<int>& nums, int target) {
-        sort(nums.begin(),nums.end());
+       int c1=count(nums.begin(),nums.end(),target);
+        int c2=0;
+        for(auto x:nums) c2+=(x<target);
         vector<int> ans;
-        int lb=lower_bound(nums.begin(),nums.end(),target)-nums.begin();
-        int ub=upper_bound(nums.begin(),nums.end(),target)-nums.begin();
-        for(int i=lb; i<ub; i++) ans.push_back(i);
+        while(c1--) ans.push_back(c2++);
         return ans;
     }
 };
