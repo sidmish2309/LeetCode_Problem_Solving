@@ -2,20 +2,17 @@ class Solution {
 public:
     vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
          vector<int> ans;
-        set<int> s;
-        sort(nums1.begin(),nums1.end());
-        sort(nums2.begin(),nums2.end());
-        int i=0, j=0;
-        while(i<nums1.size() && j<nums2.size())
+       map<int,int> m;
+        for(auto x:nums1) m[x]++;
+        
+        for(auto x:nums2)
         {
-            if(nums1[i]==nums2[j])
+            auto it=m.find(x);
+            if(it!=m.end() && it->second>0)
             {
-               ans.push_back(nums1[i]);
-                i++;
-                j++;
+                ans.push_back(x);
+                it->second--;
             }
-            else if(nums1[i]>nums2[j]) j++;
-            else i++;
         }
         return ans;
     }
