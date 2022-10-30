@@ -5,8 +5,8 @@ public:
         int ans=0;
         for(int i=0; i<n; i++)
         {
-            reverse(grid[i].begin(),grid[i].end());
-            int ub=upper_bound(grid[i].begin(),grid[i].end(),-1)-grid[i].begin();
+            // reverse(grid[i].begin(),grid[i].end());
+            int ub=upper_bound(grid[i].rbegin(),grid[i].rend(),-1)-grid[i].rbegin();
             ans+=ub;
         }
         return ans;
