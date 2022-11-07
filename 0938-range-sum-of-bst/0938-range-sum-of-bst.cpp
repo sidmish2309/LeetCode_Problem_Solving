@@ -15,12 +15,14 @@ public:
       
       if(root==NULL) return 0;
       
-      if(root->val >= L && root->val <= R){
+      if(root->val >= L && root->val <= R)
         return root->val + rangeSumBST(root->left,L,R) + rangeSumBST(root->right,L,R);
-      }else if(root->val < L){
+         
+      else if(root->val < L)
         return rangeSumBST(root->right,L,R);
-      }else {
+      
+         else 
         return rangeSumBST(root->left,L,R);
-      }
+      
     }
 };
