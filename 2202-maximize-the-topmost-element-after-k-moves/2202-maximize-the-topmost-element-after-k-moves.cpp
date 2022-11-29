@@ -8,9 +8,9 @@ public:
         if(k&1 && n==1) return -1;
         if(k==1) return nums[1];
         if(k>n) return maxi;
-         for(int i=0; i<k-1; i++) p=max(p,nums[i]);
-        if(k==n) return *max_element(nums.begin(),nums.begin()+k-1);
-       
+        for(int i=0; i<k-1; i++) p=max(p,nums[i]);
+        if(k==n) return p;
+        else
         return max(p,nums[k]);
         
     }
