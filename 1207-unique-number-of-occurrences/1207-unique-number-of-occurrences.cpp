@@ -4,14 +4,14 @@ public:
         int n=arr.size();
         sort(arr.begin(),arr.end());
         vector<int> v;
-        int c=0;
+        int c=1;
         for(int i=0; i<n-1; i++)
         {
             if(arr[i]==arr[i+1]) c++;
             else
             {
                 v.push_back(c);
-                c=0;
+                c=1;
             }
         }
         
