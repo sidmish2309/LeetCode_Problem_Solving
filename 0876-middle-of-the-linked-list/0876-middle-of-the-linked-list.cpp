@@ -12,13 +12,17 @@ class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
      //rabbit and tortoise method
-        ListNode* slow=head;
-        ListNode* fast=head;
-        while(fast && fast->next)
+        int len=0;
+        ListNode* it=head;
+        while(it)
         {
-            slow=slow->next;
-            fast=fast->next->next;
+            len++;
+            it=it->next;
         }
-        return slow;
+        it=head;
+        
+        for(int i=0; i<len/2; i++) it=it->next;
+        
+        return it;
     }
 };
