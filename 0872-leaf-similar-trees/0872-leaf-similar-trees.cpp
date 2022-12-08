@@ -11,12 +11,13 @@
  */
 
  
-void dfs(TreeNode* root, vector<int> &v1)
-{
+void dfs(TreeNode* root, vector<int> &v)
+{   
+    if(root==NULL) return;
+    if(root->left==NULL && root->right==NULL) v.push_back(root->val);
+    dfs(root->left,v);
+    dfs(root->right,v);
    
-    if(root->left) dfs(root->left,v1);
-    if(root->right) dfs(root->right,v1);
-    if(root->left==NULL && root->right==NULL) v1.push_back(root->val);
 }
 class Solution {
 public:
@@ -25,7 +26,6 @@ public:
        vector<int> v1,v2;
         dfs(root1,v1);
         dfs(root2,v2);
-        if(v1==v2) return true;
-        return false;
+       return v1==v2;
     }
 };
