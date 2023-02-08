@@ -4,7 +4,7 @@ public:
   
     int reverse(int x) {
         bool f=false;
-        int g=x;
+        
         
         if(x<0) f=true;
         x=abs(x);
