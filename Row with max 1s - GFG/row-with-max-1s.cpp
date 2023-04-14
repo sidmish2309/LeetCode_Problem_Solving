@@ -10,8 +10,7 @@ public:
 	    int ans=-1, cnt=-1;
 	    for(int i=0; i<n; i++)
 	    {
-	        int c=0;
-	        for(int j=0; j<m; j++) if(arr[i][j]==1) c++;
+	        int c=m-(upper_bound(arr[i].begin(),arr[i].end(),0)-arr[i].begin());
 	        if(c>cnt)
 	        {
 	            cnt=c;
