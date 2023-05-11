@@ -9,36 +9,38 @@ using namespace std;
 
 class Solution {
 public:
-    bool ok(int mid, vector<int>&a, int n, int k)
-    {
-        int cows=1, pre=a[0];
-        for(int i=1; i<n; i++)
-        {
-            if(a[i]-pre>=mid)
-            {
-                cows++;
-                pre=a[i];
-            }
-        }
-        
-        if(cows>=k) return true;
-        return false;
-    }
-    int solve(int n, int k, vector<int> &stalls) {
-       sort(stalls.begin(),stalls.end());
-       int low=1, high=1000000000;
-       int ans=1;
-       while(low<=high)
+    bool ok(int mid, vector<int>& a, int k)  // 8
+{
+   int cow=1, pre=a[0];
+   for(int i=1; i<a.size(); i++)
+   {
+       if(a[i]-pre>=mid)
        {
-           int mid=(low+high)/2;
-           if(ok(mid,stalls,n,k))
-           {
-               ans=mid;
-               low=mid+1;
-           }
-           else high=mid-1;
+           cow++;
+           pre=a[i];
        }
-       return ans;
+   }
+   
+   return cow>=k;
+}
+
+    int solve(int n, int k, vector<int> &a) {
+        
+        sort(a.begin(),a.end());
+        int low=1, high=a[n-1]-a[0], ans=0;
+        while(low<=high)
+        {
+            int mid=(low+high)>>1;
+            if(ok(mid,a,k)) // me iss speed se ---> hr me kha paungaa
+            {
+                ans=mid;
+                low=mid+1;
+            }
+            else high=mid-1;
+
+        }
+
+        return ans;
     }
 };
 
