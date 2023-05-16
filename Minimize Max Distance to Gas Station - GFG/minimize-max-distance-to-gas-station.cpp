@@ -12,7 +12,7 @@ class Solution {
       return cnt<=k;
   }
     double findSmallestMaxDist(vector<int> &s, int k){
-      double eps=1e-6;
+      double eps=1e-7;
       int n=s.size();
       double low=0, high=(s[n-1]-s[0]);
       double ans=high;
