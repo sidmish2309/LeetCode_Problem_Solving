@@ -16,7 +16,7 @@ class Solution {
       int n=s.size();
       double low=0, high=(s[n-1]-s[0]);
       double ans=high;
-      while(high-low>eps)
+      while(high-low>=eps)
       {
              double mid=(low+high)/2;
              if(okay(mid,s,k))
