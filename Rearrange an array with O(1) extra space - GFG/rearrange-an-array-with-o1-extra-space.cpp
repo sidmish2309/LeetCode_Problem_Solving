@@ -17,8 +17,16 @@ class Solution{
         for(int i=0; i<n; i++) f[i]=arr[i];
         for(int i=0; i<n; i++)
         {
-            arr[i]=f[arr[i]];
+            long long  x=arr[i]; // x=4
+            long long  y=arr[x]; // y=3
+            arr[i]= x + (y%n)*n;  // 19
         }
+        
+         for(int i=0; i<n; i++)
+        {
+            arr[i]/=n;
+        }
+        
         
     }
 };
