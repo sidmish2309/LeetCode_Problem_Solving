@@ -1,44 +1,44 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 #include<bits/stdc++.h>
 using namespace std;
 
- // } Driver Code Ends
+// } Driver Code Ends
 class Solution
 {
-    #define pii pair<int,int>
 	public:
-	//Function to find the shortest distance of all the vertices
-    //from the source vertex S.
-    vector <int> dijkstra(int V, vector<vector<int>> A[], int S)
+	
+    vector <int> dijkstra(int V, vector<vector<int>> adj[], int S)
     {
-        priority_queue<pii,vector<pii>,greater<pii>>pq;
-        vector<int> dist(V+1,1e9+7);
-        dist[S]=0;
-        pq.push({0,S});
-        while(!pq.empty())
-        {
-            int dis=pq.top().first;
-            int prev=pq.top().second;
-            pq.pop();
-            for(auto child:A[prev])
-            {
-                int next=child[0];
-                int nextDist=child[1];
-                if(dist[next]>dist[prev]+nextDist)
-                {
-                   dist[next]=dist[prev]+nextDist;
-                   pq.push({dist[next],next});
-                }
-                
-            }
-        }
-        return dist;
+        vector<int> dis(V+1,1e9);  // dis[i] represent ith node distance from S
+        dis[S]=0;
         
+      // {dis,node}
+         priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>> > pq;
+         pq.push({0,S});
+         
+         while(!pq.empty())
+         {
+             int dist=pq.top().first;
+             int node=pq.top().second;
+             pq.pop();
+             for(auto d:adj[node])
+             {
+                 int next_node=d[0];
+                 int next_dis=d[1];
+                 if(dis[next_node]>dis[node]+next_dis)  // mujhe orr chhoti distance mil rhii hai
+                 {
+                     dis[next_node]=dis[node]+next_dis;
+                     pq.push({dis[next_node],next_node});
+                 }
+             }
+             
+         }
+         return dis;
     }
 };
 
 
-// { Driver Code Starts.
+//{ Driver Code Starts.
 
 
 int main()
@@ -75,4 +75,5 @@ int main()
     return 0;
 }
 
-  // } Driver Code Ends
+
+// } Driver Code Ends
