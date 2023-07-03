@@ -132,21 +132,9 @@ struct Node{
             }
         }
         
-        while(a)
-        {
-            temp->bottom=a;
-            a=a->bottom;
-            temp=temp->bottom;
-        }
-        
-          while(b)
-        {
-            temp->bottom=b;
-            b=b->bottom;
-            temp=temp->bottom;
-        }
-        
-        // g->bottom->next=NULL;
+      if(a) temp->bottom=a;
+      if(b) temp->bottom=b;
+      
         return g->bottom;
     }
     
