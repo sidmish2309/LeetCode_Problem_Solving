@@ -18,9 +18,9 @@ class Solution
             int x=N[i]/g, y=D[i]/g;
             // cout<<x<<" "<<y<<endl;
             int rx=y-x, ry=y;
-            int gr=__gcd(rx, ry);
-            rx/=gr;
-            ry/=gr;
+            // int gr=__gcd(rx, ry);
+            // rx/=gr;
+            // ry/=gr;
             ans+=m[{rx,ry}];
             
             m[{x,y}]++;
