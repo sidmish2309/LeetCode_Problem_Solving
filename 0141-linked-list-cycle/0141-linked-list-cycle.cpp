@@ -15,13 +15,11 @@ public:
         while(f && f ->next)
         {
             f = f->next->next;
-            s = s->next;
-            
+            s = s->next; 
 			
-			// At the point if fast and slow are at same address
-			// this means linked list has a cycle in it.
             if(f == s)
-                return true;
+            return true;
+            
         }
         
         return false;
